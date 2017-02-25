@@ -4,12 +4,14 @@ import java.lang.reflect.InvocationHandler;
 
 /**
  * The Class AbstractHandler provides a simple wrapper for our own aop.
+ * 实现了InvocationHandler接口。
  *
  * @author Debadatta Mishra
  */
 public abstract class AbstractHandler implements InvocationHandler {
 
 	/** The target object. */
+	//被代理对象
 	private Object targetObject;
 	
 	/**

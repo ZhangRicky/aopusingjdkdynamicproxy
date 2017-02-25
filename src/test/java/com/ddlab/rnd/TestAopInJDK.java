@@ -26,14 +26,20 @@ public class TestAopInJDK {
 	 *            the arguments
 	 */
 	public static void main(String[] args) {
+		//创建一个原始的CalculatorImpl对象
 		CalculatorImpl calcImpl = new CalculatorImpl();
+		
 		BeforeHandler before = new BeforeHandlerImpl();//执行之前的AOP
 		AfterHandler after = new AfterHandlerImpl();	//执行之后的AOP
+		
 		List<AbstractHandler> handlers = new ArrayList<AbstractHandler>();
 		handlers.add(before);
 		handlers.add(after);
+		//以指定的对象来创建动态代理
 		Calculator proxy = (Calculator) ProxyFactory.getProxy(calcImpl,handlers);
+		//方法调用
 		int result = proxy.calculate(20, 10);
+		
 		System.out.println("FInal Result :::" + result);
 	}
 
